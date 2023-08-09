@@ -1,0 +1,12 @@
+C:\Users\М\Desktop\langs\csharp\ChessUnits\bin\Debug\net7.0\ChessUnits.deps.json
+C:\Users\М\Desktop\langs\csharp\ChessUnits\bin\Debug\net7.0\ChessUnits.dll
+C:\Users\М\Desktop\langs\csharp\ChessUnits\bin\Debug\net7.0\ChessUnits.pdb
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.csproj.AssemblyReference.cache
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.AssemblyInfoInputs.cache
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.AssemblyInfo.cs
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.csproj.CoreCompileInputs.cache
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.dll
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\refint\ChessUnits.dll
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ChessUnits.pdb
+C:\Users\М\Desktop\langs\csharp\ChessUnits\obj\Debug\net7.0\ref\ChessUnits.dll
