@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using System.Text;
 
 namespace ChessUnits
@@ -9,14 +9,14 @@ namespace ChessUnits
         static private string nums = "12345678";
         private Unit[,] Map = new Unit[8, 8];
         public List<Unit> PawnsToSpawn = new() {
-            new PawnUnit(1, 2),
-            new PawnUnit(2, 2),
-            new PawnUnit(3, 2),
-            new PawnUnit(4, 2),
-            new PawnUnit(5, 2),
-            new PawnUnit(6, 2),
-            new PawnUnit(7, 2),
-            new PawnUnit(8, 2),
+            new Pawn(1, 2),
+            new Pawn(2, 2),
+            new Pawn(3, 2),
+            new Pawn(4, 2),
+            new Pawn(5, 2),
+            new Pawn(6, 2),
+            new Pawn(7, 2),
+            new Pawn(8, 2),
             new Knight(2, 1),
             new Knight(7, 1),
             new King(5, 1),
@@ -78,10 +78,17 @@ namespace ChessUnits
             Console.WriteLine();
         }
 
-        public void MakeMove(int x, int y)
+        public void MakeMove(int xStart, int yStart, int xEnd, int yEnd)
         {
-            var ThisUnit = Map[y - 1, x - 1];
-            ThisUnit.MoveTo(x, y);
+            var thisUnit = Map[yStart - 1, xStart - 1];
+            if (thisUnit.CanMoveTo(xEnd, yEnd))
+            {
+                Map[yStart - 1, xStart - 1] = new Unit(xStart, yStart);
+                Map[yEnd - 1, xEnd - 1] = thisUnit;
+                thisUnit.MoveTo(xEnd, yEnd);
+            }
+            else
+                Console.WriteLine("Wrong move!");
         }
     }
 
@@ -103,13 +110,8 @@ namespace ChessUnits
 
         public void MoveTo(int x, int y)
         {
-            if (CanMoveTo(x, y))
-            {
-                X = x;
-                Y = y;
-            }
-            else
-                Console.WriteLine("Wrong move");
+            X = x;
+            Y = y;
         }
 
         public virtual string GetChar()
@@ -118,11 +120,11 @@ namespace ChessUnits
         }
     }
 
-    public class PawnUnit : Unit
+    public class Pawn : Unit
     {
         static public readonly new char UnitChar = 'P';
 
-        public PawnUnit(int x, int y) : base(x, y)
+        public Pawn(int x, int y) : base(x, y)
         {
             this.X = x;
             this.Y = y;
@@ -141,7 +143,7 @@ namespace ChessUnits
 
     public class Knight : Unit
     {
-        static public readonly new char UnitChar = 'K';
+        static public readonly new char UnitChar = 'N';
 
         public Knight(int x, int y): base(x, y)
         {
@@ -162,7 +164,7 @@ namespace ChessUnits
 
     public class King : Unit
     {
-        static public readonly new char UnitChar = 'V';
+        static public readonly new char UnitChar = 'K';
 
         public King(int x, int y) : base(x, y)
         {
@@ -212,7 +214,7 @@ namespace ChessUnits
 
             public override bool CanMoveTo(int x, int y)
             {
-                return Y == y && x != X || x == X && y != Y;
+                return (Y == y && x != X) || (x == X && y != Y);
             }
 
             public override string GetChar()
